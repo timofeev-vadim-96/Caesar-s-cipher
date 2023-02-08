@@ -13,9 +13,20 @@ void CaesarCode (string inputText, char [] inputLanguage)
 {
     for (int i = 0; i < inputText.Length; i++)
     {
+        int dif = 0;
+        int indexInLang = 0;
         for (int j = 0; j < inputLanguage.Length; j++)
         {
-            if (inputText[i] == inputLanguage[j]) resultText[i] = inputLanguage[j+n];
+            if (inputText[i] == inputLanguage[j]) 
+            {
+                indexInLang = j; 
+                if (j+n > inputLanguage.Length/2)
+                {
+                    dif = (j+n) - inputLanguage.Length/2;
+                    resultText[i] = inputLanguage[dif];
+                }
+                else resultText[i] = inputLanguage[j+n];
+            }
         }
     }
 }
